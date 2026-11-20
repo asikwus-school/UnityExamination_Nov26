@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5058640862150783942}
   - component: {fileID: 4051471270743947108}
   - component: {fileID: 2101012633910425250}
+  - component: {fileID: 3526773412467612150}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -116,7 +117,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   spriteRenderer: {fileID: 7314770912758887848}
-  animator: {fileID: 0}
+  animator: {fileID: 3526773412467612150}
 --- !u!50 &5919933933956242333
 Rigidbody2D:
   serializedVersion: 5
@@ -347,3 +348,25 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!95 &3526773412467612150
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2603334316351391915}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d9d9eab431e3a1d42a5731f44469eb0f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

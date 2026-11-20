@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,6 +18,8 @@ using UnityEngine.InputSystem;
 
 public class CustomizablePlatformerMovement : MonoBehaviour
 {
+    private static readonly int Jump = Animator.StringToHash("Jump");
+    private static readonly int Move = Animator.StringToHash("Move");
     [SerializeField] private float maxSpeed = 10f;
     [SerializeField] private float jumpForce = 10f;
     
@@ -45,7 +48,7 @@ public class CustomizablePlatformerMovement : MonoBehaviour
         
         rigidbody.gravityScale = 0; // Set gravity scale to 0 so player won't "fall". We will apply our own gravity!
 
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
     
     void Update()
@@ -72,6 +75,7 @@ public class CustomizablePlatformerMovement : MonoBehaviour
             else
             {
                 // Has jumped. Play jump sound and/or trigger jump animation etc
+                animator.SetBool(Jump, true);
             }
         }
         // Check if character gained contact with ground this frame
@@ -79,6 +83,7 @@ public class CustomizablePlatformerMovement : MonoBehaviour
         {
             jumpReleased = false;
             // Has landed, play landing sound and trigger landing animation
+            animator.SetBool(Jump,false);
         }
         
         rigidbody.linearVelocity = velocity;
@@ -88,7 +93,7 @@ public class CustomizablePlatformerMovement : MonoBehaviour
         velocity.x = moveInput.x * maxSpeed;
         
         // Write movement animation code here. (Suggestion: send your current velocity into the Animator for both the x- and y-axis.)
-        // animator.SetFloat("HorizontalMovement", moveInput.x)
+        animator.SetFloat(Move, MathF.Abs(moveInput.x));
         
         // Flip sprite according to direction (if a sprite renderer has been assigned)
         if (spriteRenderer)
