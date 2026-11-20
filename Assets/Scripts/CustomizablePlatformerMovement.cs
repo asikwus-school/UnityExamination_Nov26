@@ -15,6 +15,7 @@ using UnityEngine.InputSystem;
 // Use UnityEvents in the PlayerInput-component to call movement-functions in this script.
 
 // This script has setup for playing animations and sounds.
+// Make sure player has a child object named JumpSound with the jump sound as an AudioSource, in order to get the jump sound.
 
 public class CustomizablePlatformerMovement : MonoBehaviour
 {
@@ -41,6 +42,8 @@ public class CustomizablePlatformerMovement : MonoBehaviour
     [Header("Graphics")]
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Animator animator;
+
+    [Header("Audio")] [SerializeField] private AudioSource jumpSound;
     
     void Awake()
     {
@@ -49,6 +52,7 @@ public class CustomizablePlatformerMovement : MonoBehaviour
         rigidbody.gravityScale = 0; // Set gravity scale to 0 so player won't "fall". We will apply our own gravity!
 
         animator = GetComponent<Animator>();
+        jumpSound = transform.Find("JumpSound").GetComponent<AudioSource>();
     }
     
     void Update()
@@ -76,6 +80,7 @@ public class CustomizablePlatformerMovement : MonoBehaviour
             {
                 // Has jumped. Play jump sound and/or trigger jump animation etc
                 animator.SetBool(Jump, true);
+                jumpSound.Play();
             }
         }
         // Check if character gained contact with ground this frame
