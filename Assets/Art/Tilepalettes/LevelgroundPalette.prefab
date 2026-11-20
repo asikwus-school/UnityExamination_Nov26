@@ -172,7 +172,7 @@ GameObject:
   - component: {fileID: 2194793227911016016}
   - component: {fileID: 1742380868142928093}
   m_Layer: 0
-  m_Name: Tilepalette
+  m_Name: LevelgroundPalette
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
